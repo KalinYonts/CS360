@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<br/>
+<h1><u><strong>Posts</strong></u></h1>
+<br/>
+
+<ul>
+{% for post in object_list %}
+
+	<!-- This is displaying all of the posts in the DB using a for loop -->
+	<li><a href="{% url 'postDetail' post.pk %}">{{ post.title }}</a> - <b>{{ post.author }}</b><br/>
+	{{ post.body | slice:":200" }}</li>
+
+{% endfor %}
+</ul>
+
+{% endblock %}
